@@ -1,0 +1,66 @@
+@require(path_for, account, phone, errors)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Sign up - Test Form</title>
+        <link href="#path_for('static', path='site.css')"
+            type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="page">
+            <div id="header">
+                <div id="title">
+                    <h1><a href="#path_for('signup')">Sign Up</a></h1>
+                </div>
+            </div>
+            <div id="main">
+                <div id="form">
+                    <form action="#path_for('daftar')" method="post">
+                        <h2>Registration</h2>
+                        <p>
+                        @account.username.label('Username:')
+                        @account.username.textbox(autocomplete='off')!h
+                        @account.username.error()
+                        </p>
+                        <p>
+                        @account.email.label('Email:')
+                        @account.email.textbox(autocomplete='off')!h
+                        @account.email.error()
+                        </p>
+                        <p>
+                        @account.password.label('Password:')
+                        @account.password.password(autocomplete='off')!h
+                        @account.password.error()
+                        </p>
+                        <p>
+                        @account.address.label('Address:')
+                        @account.address.textbox(autocomplete='off')!h
+                        @account.address.error()
+                        </p>
+                        <p>
+                        @account.birthdate.label('Birthdate (YYYY/MM/DD):')
+                        @account.birthdate.textbox(autocomplete='off')!h
+                        @account.birthdate.error()
+                        </p>
+                        <p>
+                        @phone.phone.label('Phone Number:')
+                        @phone.phone.textbox(autocomplete='off')!h
+                        @phone.phone.error()
+                        </p>
+                        <p>
+                        @phone.phone.label('Mobile Number:')
+                        @phone.phone.textbox(autocomplete='off')!h
+                        @phone.phone.error()
+                        </p>
+                        <p>
+                        <input type="submit" value="Sign Up" />
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        #def script():
+        #end
+        #script()\
+    </body>
+</html>
