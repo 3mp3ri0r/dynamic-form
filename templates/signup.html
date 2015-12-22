@@ -1,21 +1,21 @@
-@require(path_for, account, phone, errors)
+@require(path_for, account, phone, model, errors)
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Sign up - Test Form</title>
-        <link href="#path_for('static', path='site.css')"
+        <link href="@path_for('static', path='site.css')"
             type="text/css" rel="stylesheet" />
     </head>
     <body>
         <div class="page">
             <div id="header">
                 <div id="title">
-                    <h1><a href="#path_for('signup')">Sign Up</a></h1>
+                    <h1><a href="@path_for('signup')">Sign Up</a></h1>
                 </div>
             </div>
             <div id="main">
                 <div id="form">
-                    <form action="#path_for('daftar')" method="post">
+                    <form action="@path_for('signup')" method="post">
                         <h2>Registration</h2>
                         <p>
                         @account.username.label('Username:')
@@ -42,16 +42,14 @@
                         @account.birthdate.textbox(autocomplete='off')!h
                         @account.birthdate.error()
                         </p>
-                        <p>
-                        @phone.phone.label('Phone Number:')
-                        @phone.phone.textbox(autocomplete='off')!h
-                        @phone.phone.error()
-                        </p>
-                        <p>
-                        @phone.phone.label('Mobile Number:')
-                        @phone.phone.textbox(autocomplete='off')!h
-                        @phone.phone.error()
-                        </p>
+                        @for i in range(len(model.HP)):
+                            <p>
+                            @model.HP[@str(i)].label('Number[@str(i)]:')
+                            @model.HP[i].textbox(autocomplete='off')!h
+                            @model.HP[i].error()
+                            </p>
+                        @end
+                        <p><a href="@path_for('signup')?HP">+</a></p>
                         <p>
                         <input type="submit" value="Sign Up" />
                         </p>
@@ -59,8 +57,5 @@
                 </div>
             </div>
         </div>
-        #def script():
-        #end
-        #script()\
     </body>
 </html>
